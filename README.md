@@ -403,7 +403,7 @@ Init a new app Id.
 Log an user to get his second accessToken, and log again the user to the main appId.
 
 ```js
-facebookConnectPlugin.init([newAppId], function (response) {
+facebookConnectPlugin.init([AppId2], function (response) {
     console.log(response)
     facebookConnectPlugin.newAccessToken(['public_profile'], function(res) {
         // the new login is used to get a new accessToken of another facebook app
