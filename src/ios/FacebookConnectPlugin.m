@@ -135,14 +135,17 @@
 }
 
 
-- (void)loginSecond:(CDVInvokedUrlCommand *)command {
-    NSLog(@"Starting login 2");
+- (void) newlogin:(CDVInvokedUrlCommand *)command {
+     NSLog(@"Starting new login");
     CDVPluginResult *pluginResult;
     NSArray *permissions = nil;
     
     if ([command.arguments count] > 0) {
         permissions = command.arguments;
     }
+
+    // Store the previous accesToken to have the main appId accessToken set after the new login
+    // and still have the user connected
 
     FBSDKAccessToken *accesToken = [FBSDKAccessToken currentAccessToken];
     // this will prevent from being unable to login after updating plugin or changing permissions
@@ -173,6 +176,7 @@
         } else {
             CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
                                                           messageAsDictionary:[self responseObject]];
+            // set the first accessToken (Main appId)
             if(accesToken != nil) [FBSDKAccessToken  setCurrentAccessToken:accesToken];
             [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         }
@@ -213,7 +217,7 @@
 }
 
 - (void)login:(CDVInvokedUrlCommand *)command {
-    NSLog(@"Starting login 2");
+    NSLog(@"Starting login");
     CDVPluginResult *pluginResult;
     NSArray *permissions = nil;
     
@@ -590,7 +594,8 @@
 }
 
 - (void) init:(CDVInvokedUrlCommand *) command
-{
+{   
+    // set a new appId for the facebookPlugin 
     NSString *data_id = [command.arguments objectAtIndex:0];
     
     [FBSDKAppEvents setLoggingOverrideAppID:data_id];

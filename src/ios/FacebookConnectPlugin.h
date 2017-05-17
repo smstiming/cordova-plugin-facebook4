@@ -27,7 +27,7 @@
 - (void)showDialog:(CDVInvokedUrlCommand *)command;
 - (void)appInvite:(CDVInvokedUrlCommand *) command;
 - (void)init:(CDVInvokedUrlCommand *) command;
-- (void)loginSecond:(CDVInvokedUrlCommand *) command;
+- (void)newlogin:(CDVInvokedUrlCommand *) command;
 - (void)getDeferredApplink:(CDVInvokedUrlCommand *) command;
 - (void)activateApp:(CDVInvokedUrlCommand *)command;
 @end

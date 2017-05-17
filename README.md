@@ -60,6 +60,34 @@ Success function returns an Object like:
 
 Failure function returns an error String.
 
+### Init
+
+`facebookConnectPlugin.init(Array string of AppId, Function success, Function failure)`
+
+### Newlogin
+
+Get a new access token for the last app_id initialised.
+
+`facebookConnectPlugin.newlogin(rray strings of permissions, Function success, Function failure)`
+
+Success function returns an Object like:
+
+	{
+		status: "connected",
+		authResponse: {
+			session_key: true,
+			accessToken: "<long string>",
+			expiresIn: 5183979,
+			sig: "...",
+			secret: "...",
+			userID: "634565435"
+		}
+	}
+
+Failure function returns an error String.
+
+
+
 ### Logout
 
 `facebookConnectPlugin.logout(Function success, Function failure)`
@@ -342,6 +370,47 @@ facebookConnectPlugin.showDialog({
     console.log(response)
   }, function (response) {
     console.log(response)
+  }
+);
+```
+
+
+
+### Use multiple Id
+
+In some cases you should want to use multiples facebook `APP_ID`. It is possible with iOs and Android to change it.
+
+For iOs, you have to put every `APP_ID` in the `XXX-Info.plist` file first in the `CFBundleURLTypes` :
+
+```
+<dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fbAppId2</string>
+        </array>
+      </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fbAppId3</string>
+        </array>
+      </dict>
+```
+
+## Init a new App Id and Connect a user to get his accessToken
+
+Init a new app Id.
+Log an user to get his second accessToken, and log again the user to the main appId.
+
+```js
+facebookConnectPlugin.init([newAppId], function (response) {
+    console.log(response)
+    facebookConnectPlugin.newlogin(['public_profile'], function(res) {
+        // the new login is used to get a new accessToken of another facebook app
+        // And then login again the uset to the main facebook app
+    })
+  }, function (error) {
+    console.log(error)
   }
 );
 ```

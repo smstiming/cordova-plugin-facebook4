@@ -79,7 +79,7 @@ public class ConnectPlugin extends CordovaPlugin {
     private GameRequestDialog gameRequestDialog;
     private AppInviteDialog appInviteDialog;
     private MessageDialog messageDialog;
-    private AccessToken accessTokenHack;
+    private AccessToken accessTokenNew;
 
     @Override
     protected void pluginInitialize() {
@@ -119,10 +119,11 @@ public class ConnectPlugin extends CordovaPlugin {
                         if (loginContext != null) {
                             Log.d(TAG, "returning login object " + jsonObject.toString());
 
-                            if(accessTokenHack != null){
+                            if(accessTokenNew != null){
+                                // set the first accessToken (Main appId)
                                 final AccessToken accessToken = AccessToken.getCurrentAccessToken();
                                 LoginManager.getInstance().logOut();
-                                AccessToken.setCurrentAccessToken(accessTokenHack);
+                                AccessToken.setCurrentAccessToken(accessTokenNew);
                                 loginContext.success(accessToken.getToken()); 
                                 loginContext = null;
                             }
@@ -300,8 +301,10 @@ public class ConnectPlugin extends CordovaPlugin {
 
         }
 
-        else if (action.equals("loginSecond")) {
-            accessTokenHack = AccessToken.getCurrentAccessToken();
+        else if (action.equals("newlogin")) {
+             // Store the previous accesToken to have the main appId accessToken set after the new login
+            // and still have the user connected
+            accessTokenNew = AccessToken.getCurrentAccessToken();
             LoginManager.getInstance().logOut();
             executeLogin(args, callbackContext);
             return true;
