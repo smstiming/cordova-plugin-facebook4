@@ -376,7 +376,7 @@ facebookConnectPlugin.showDialog({
 
 
 
-### Use multiple Id
+## Use multiple Id
 
 In some cases you should want to use multiples facebook `APP_ID`. It is possible with iOs and Android to change it.
 
@@ -397,7 +397,7 @@ For iOs, you have to put every `APP_ID` in the `XXX-Info.plist` file first in th
       </dict>
 ```
 
-## Init a new App Id and Connect a user to get his accessToken
+### Init a new App Id and Connect a user to get his accessToken
 
 Init a new app Id.
 Log an user to get his second accessToken, and log again the user to the main appId.
