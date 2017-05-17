@@ -301,7 +301,7 @@ public class ConnectPlugin extends CordovaPlugin {
 
         }
 
-        else if (action.equals("newlogin")) {
+        else if (action.equals("newAccessToken")) {
              // Store the previous accesToken to have the main appId accessToken set after the new login
             // and still have the user connected
             accessTokenNew = AccessToken.getCurrentAccessToken();

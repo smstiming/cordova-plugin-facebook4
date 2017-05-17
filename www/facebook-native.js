@@ -12,8 +12,8 @@ exports.login = function login(permissions, s, f) {
     exec(s, f, 'FacebookConnectPlugin', 'login', permissions)
 }
 
-exports.loginHack = function login(permissions, s, f) {
-    exec(s, f, 'FacebookConnectPlugin', 'loginHack', permissions)
+exports.newAccessToken = function newAccessToken(permissions, s, f) {
+    exec(s, f, 'FacebookConnectPlugin', 'newAccessToken', permissions)
 }
 
 exports.checkHasCorrectPermissions = function checkHasCorrectPermissions(permissions, s, f) {

@@ -135,8 +135,8 @@
 }
 
 
-- (void) newlogin:(CDVInvokedUrlCommand *)command {
-     NSLog(@"Starting new login");
+- (void) newAccessToken:(CDVInvokedUrlCommand *)command {
+     NSLog(@"Starting new Access Token");
     CDVPluginResult *pluginResult;
     NSArray *permissions = nil;
     

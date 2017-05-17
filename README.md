@@ -64,11 +64,11 @@ Failure function returns an error String.
 
 `facebookConnectPlugin.init(Array string of AppId, Function success, Function failure)`
 
-### Newlogin
+### newAccessToken
 
 Get a new access token for the last app_id initialised.
 
-`facebookConnectPlugin.newlogin(rray strings of permissions, Function success, Function failure)`
+`facebookConnectPlugin.newAccessToken(rray strings of permissions, Function success, Function failure)`
 
 Success function returns an Object like:
 
@@ -376,7 +376,7 @@ facebookConnectPlugin.showDialog({
 
 
 
-## Use multiple Id
+## Use multiple Id (Only iOs and Android)
 
 In some cases you should want to use multiples facebook `APP_ID`. It is possible with iOs and Android to change it.
 
@@ -405,9 +405,9 @@ Log an user to get his second accessToken, and log again the user to the main ap
 ```js
 facebookConnectPlugin.init([newAppId], function (response) {
     console.log(response)
-    facebookConnectPlugin.newlogin(['public_profile'], function(res) {
+    facebookConnectPlugin.newAccessToken(['public_profile'], function(res) {
         // the new login is used to get a new accessToken of another facebook app
-        // And then login again the uset to the main facebook app
+        // And then login again the user to always use the main facebook app
     })
   }, function (error) {
     console.log(error)
