@@ -13,6 +13,8 @@
       Cordova application as you use in your web application.
     </description>
         
+    <repo>https://github.com/smstiming/cordova-plugin-facebook4</repo>
+        
     <license>Apache 2.0</license>
 
     <preference name="APP_ID" />
@@ -102,54 +104,8 @@
               <array>
                 <string>fb$APP_ID</string>
               </array>
-            </dict>
-              <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb808376745984292</string>
-        </array>
-      </dict>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb339823363080339</string>
-        </array>
-      </dict>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb875018035989004</string>
-        </array>
-      </dict>
-
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb1455153147842437</string>
-        </array>
-      </dict>
-
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb794955297321146</string>
-        </array>
-      </dict>
-
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb633727076816438</string>
-        </array>
-      </dict>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb259778504475029</string>
-        </array>
-      </dict>
-          </array>
-          
+            </dict>              
+          </array>          
         </config-file>
 
         <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
