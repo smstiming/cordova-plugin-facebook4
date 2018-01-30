@@ -10,7 +10,7 @@
 
       The Facebook plugin for Apache Cordova allows you to use the same JavaScript code in your
       Cordova application as you use in your web application.
-    </description>        
+    </description>
     <license>Apache 2.0</license>
     <repo>https://github.com/smstiming/cordova-plugin-facebook4.git</repo>
     <issue>https://github.com/smstiming/cordova-plugin-facebook4/issues</issue>
@@ -144,4 +144,6 @@
 
     </platform>
 
+    <!-- after_prepare hook to populate APP_ID (required for SDK to work) -->
+    <hook type="after_prepare" src="scripts/after_prepare.js" />
 </plugin>
